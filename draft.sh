@@ -6,37 +6,65 @@ function display {
     echo -e "\033c"
 
     #Display MOTD
-    echo "
+    echo '
+    ==========================================================================
+
+    $(tput setaf 6) ▄▄▄▄   ▄            ▄▄       
+    $(tput setaf 6)█    █  █              █     
+    $(tput setaf 6)█    █  █              █     
+    $(tput setaf 6)█▀▀▀▀   █▄▄▄▄   ▄   ▄  █      ▄▄▄   ▄   ▄
+    $(tput setaf 6)█       █   ▀█  ▀▄ ▄▀  █     █   █  ▀█ █▀
+    $(tput setaf 6)█       █    █   ▀█    █     █▀▀▀    ▄▀▄
+    $(tput setaf 6)▀       ▀    ▀   ▄▀    ▀▄▄▄  ▀▄▄▄▄  █▀ ▀█
+                                   ▀▀
+    ==========================================================================
+
+    '
+}
+
+function display_flags {
+
+    #Clear Console
+    echo -e "\033c"
+
+    #Display MOTD
+    echo '
+    ==========================================================================
+
+    $(tput setaf 6)Developed by ENDER#4335 and IGrok2#9483
+
+    $(tput setaf 1)█████████████████████████████
+    $(tput setaf 1)█████████████████████████████
+    $(tput setaf 7)█████████████████████████████
+    $(tput setaf 1)█████████████████████████████
+    $(tput setaf 1)█████████████████████████████
+
+    $(tput setaf 4)█████████████████████████████
+    $(tput setaf 4)█████████$(tput setaf 7)████████$(tput setaf 4)████████████
+    $(tput setaf 1)█████████$(tput setaf 7)██$(tput setaf 1)██████████████████
+    $(tput setaf 1)█████████$(tput setaf 7)██$(tput setaf 1)██████████████████
+    $(tput setaf 2)█████████$(tput setaf 7)████████$(tput setaf 2)████████████
+    $(tput setaf 2)█████████████████████████████
 
     ==========================================================================
 
-    $(tput setaf 6)   #                                        #     #                     
-    $(tput setaf 6)  # #   #        ##    ####  ##### #  ####  #     #  ####   ####  ##### 
-    $(tput setaf 6) #   #  #       #  #  #    #   #   # #    # #     # #    # #        #   
-    $(tput setaf 6)#     # #      #    # #        #   # #      ####### #    #  ####    #   
-    $(tput setaf 6)####### #      ###### #        #   # #      #     # #    #      #   #   
-    $(tput setaf 6)#     # #      #    # #    #   #   # #    # #     # #    # #    #   #   
-    $(tput setaf 6)#     # ###### #    #  ####    #   #  ####  #     #  ####   ####    #     
-
-    ==========================================================================
-
-    "  
+    '
 }
 
 function forceStuffs {
   # Forcing Default Server Icon.
-  curl -O https://media.discordapp.net/attachments/944177397228511234/945187873919995964/server-icon.png
+  curl -O https://cdn.discordapp.com/attachments/961949498156941344/1044909917011714048/logor.png
 
   # Forcing Hibernate Plugin.
-  curl -o plugins/alactichost.jar https://cdn.discordapp.com/attachments/944177397228511234/945181383016464384/alactichost.jar
+  curl -o ./IMPORTANT_READ_IT https://raw.githubusercontent.com/kinseyy/Multi-Egg/main/TOS.txt
 
   # Forcing MOTD.
-  echo "motd=\u00a7fThis server is hosted on \u00a79AlacticHost.com\u00a7r\n\u00a77You can change this MOTD in server.properties" >> server.properties
+  echo "motd=\u00a7fThis server is hosted on \u00a79PhylexNodes.fun\u00a7r\n\u00a77You can change this MOTD in server.properties" >> server.properties
 }
 
 function launchJavaServer {
   # Using Aikars flags.
-  java -Xms1024M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar paper-server.jar nogui
+  java -Xms1024M -XX:+UseG2GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar paper-server.jar nogui
 }
 FILE=eula.txt
 
@@ -62,28 +90,32 @@ function optimizeJavaServer {
 
 # Check if the node IP is matched.
 IP=$(curl -s https://checkip.amazonaws.com)
-if [ ! "$IP" = 141.95.235.162 ]
+if [ ! "$IP" = 5.197.248.90 ]
 then
     display
-    echo "$(tput setaf 1)This node is not authorized to use this Multi-Egg. Reason: Invalid IP."
+    echo "$(tput setaf 1)Your node not authorized in Flame Integration auth servers."
 else 
 
 if [ ! -f "$FILE" ]
 then
+    mkdir -p phylexnodes_cache
     mkdir -p plugins
+    display_flags
+    sleep 5
+    clear
     display
 sleep 5
 echo "
 
-  $(tput setaf 1)If you found any bug or errors, please submit it to me via adrea#6661.
+  $(tput setaf 1)If you found any bug or errors, please submit it to me via ENDER#4335.
 
   $(tput setaf 3)Which platform are you gonna use?
 
-  1) Paper 1.8.8       6)  BungeeCord 
-  2) Paper 1.12.2      7)  Bedrock Lastest
-  3) Paper 1.16.5      8)  Pocketmine MP
-  4) Paper 1.17.1      9)  Discord NodeJS 
-  5) Paper 1.18.1      10) Discord Python
+  $(tput setaf 6)1) Paper LATEST       6)  Bedrock LATEST 
+  $(tput setaf 7)2) VScode server      7)  PocketMine MP
+  $(tput setaf 6)3) Velocity     
+  $(tput setaf 7)4) Discord.JS     
+  $(tput setaf 6)5) Discord.PY     
 
   "
 read -r n
