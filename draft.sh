@@ -6,7 +6,7 @@ function display {
     echo -e "\033c"
 
     #Display MOTD
-    echo '
+    echo "
     ==========================================================================
 
     $(tput setaf 6) ▄▄▄▄   ▄            ▄▄       
@@ -19,7 +19,7 @@ function display {
                                    ▀▀
     ==========================================================================
 
-    '
+    "
 }
 
 function display_flags {
@@ -28,7 +28,7 @@ function display_flags {
     echo -e "\033c"
 
     #Display MOTD
-    echo '
+    echo "
     ==========================================================================
 
     $(tput setaf 6)Developed by ENDER#4335 and IGrok2#9483
@@ -48,7 +48,7 @@ function display_flags {
 
     ==========================================================================
 
-    '
+    "
 }
 
 function forceStuffs {
